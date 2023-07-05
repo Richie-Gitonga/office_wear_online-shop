@@ -1,1 +1,1 @@
-# office_wear_online-shop
+This is a beginner's first fullstack react application. Its an online shop that sells mens office wear products. It contains simple implementations of react concepts that are put together to solve the major goals of the website.
