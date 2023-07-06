@@ -8,14 +8,19 @@ function ProductDetails () {
 
     const [ selectSize, setSelectedSize ] = useState('')
     const [selectQuantity, setSelctedQuantity ] = useState(1)
-    //const [product, setProduct] = useState([]);
 
     const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
     };
 
     const HandleAddToCart = () => {
-        console.log("Added to Cart")
+        const cartItems = {
+            name : product.name,
+            price: product.price,
+            quantity : selectQuantity,
+            size : selectSize,
+        }
+        console.log("Added to Cart", cartItems)
     } 
     
     if (!product) {
@@ -52,26 +57,6 @@ function ProductDetails () {
 }
 
 export default ProductDetails;
-//setProduct(productDetails);
-
-/*const { id } = useParams();
-
-    const [ selectSize, setSelectedSize ] = useState('')
-    const [selectQuantity, setSelctedQuantity ] = useState(1)
-    const [product, setProduct] = useState([]);
-
-    const handleSizeChange = (event) => {
-    setSelectedSize(event.target.value);
-    };
-
-    const HandleAdToCart = () => {
-        console.log("Added to Cart")
-    } 
-    
-    if (!product) {
-        return <div>Product Not Found</div>
-    }
-   */
     const products = [
         {
             id : 1,
@@ -108,37 +93,4 @@ export default ProductDetails;
             price: 800,
             sizes: ['S', 'M', 'L', 'Xl'],
         }
-    ]
-
-/*
-
-
-
-<div>
-            <img src={product.image} alt={product.name} />
-            <p>{product.name}</p>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            <label>
-                Select Size: 
-                <select value={selectSize} onChange={handleSizeChange}>
-                    <option  value='' >--Selected Size--</option>
-                    {product.sizes.map((size) => (
-                        <option key={size} value={size}>
-                            {size}
-                        </option>
-                    ))}
-                </select>
-            </label>
-            <br />
-            <label>
-                Quantity:
-                <input type='number' min="1" value={selectQuantity} onChange={(e) => setSelctedQuantity(parseInt(e.target.value))} />
-            </label>
-            <br/>
-            <button onClick={HandleAdToCart}>Add to Cart</button>
-            <br />
-            <Link to="/">Back To Products</Link>
-        </div>
-    );
-    ];*/
+    ];
