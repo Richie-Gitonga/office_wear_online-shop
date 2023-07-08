@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import CartContext from '../CartContext';
 
-const cart = ({catItems}) => {
+
+const Cart = () => {
+
     const calculateTotalPrice = () => {
         let totalPrice = 0;
         cartItems.forEach((item) => {
@@ -8,6 +11,7 @@ const cart = ({catItems}) => {
         });
         return totalPrice.toFixed(2);
     };
+    const { cartItems } = useContext(CartContext);
 
     return (
         <div>

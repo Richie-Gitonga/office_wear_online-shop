@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { CartContext } from '../CartContext';
+
 
 
 function ProductDetails () {
@@ -7,23 +9,27 @@ function ProductDetails () {
     const product = products.find((product) => product.id === Number(id));
 
     const [ selectSize, setSelectedSize ] = useState('')
-    const [selectQuantity, setSelctedQuantity ] = useState(1)
+    const [ selectQuantity, setSelctedQuantity ] = useState(1); 
+    const { addToCart } = useContext(CartContext);
 
     const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
     };
 
     const HandleAddToCart = () => {
-        const cartItems = {
+        
+        const cartItems = 
+            {
             name : product.name,
             price: product.price,
             quantity : selectQuantity,
             size : selectSize,
-        }
-        console.log("Added to Cart", cartItems)
+            }
+        addToCart(cartItems);
+        
     } 
     
-    if (!product) {
+    if (!findProduct) {
         return <div>Product Not Found</div>
     }
     return (
@@ -57,6 +63,7 @@ function ProductDetails () {
 }
 
 export default ProductDetails;
+
     const products = [
         {
             id : 1,
