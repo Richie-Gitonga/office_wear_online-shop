@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
 
 function Products() {
   return (
     <div>
+        <Navbar />
         {products.map((product) => (
             <Link to={`/products/${product.id}`} >      
                 <div key={product.id}>

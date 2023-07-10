@@ -26,14 +26,14 @@ function ProductDetails () {
             size : selectSize,
             }
         addToCart(cartItems);
-        
+        console.log(cartItems)
     } 
     
-    if (!findProduct) {
+    if (!product) {
         return <div>Product Not Found</div>
     }
     return (
-        <div>
+        <div key={product.id}>
             <img src={product.image} alt={product.name} />
             <p>{product.name}</p>
             <p>{product.description}</p>

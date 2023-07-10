@@ -17,10 +17,12 @@ function App() {
           <Route path="/Products/:id" element={<ProductDetails />} />
           <Route path="*" element={<PageNotFound />} />
       </Routes>
-      </CartProvider>
+    </CartProvider>
     </BrowserRouter>
-     </> 
+    </> 
   );
 }
 
 export default App;
+
+
