@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Products from './Pages/Products';
 import PageNotFound from './Pages/PageNotFound';
 import { CartProvider } from './CartContext';
+import Cart from './Pages/Cart';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Products />} />
           <Route path="/Products/:id" element={<ProductDetails />} />
           <Route path="*" element={<PageNotFound />} />
+          <Route path='/Cart' element={<Cart/>}/>
       </Routes>
     </CartProvider>
     </BrowserRouter>
