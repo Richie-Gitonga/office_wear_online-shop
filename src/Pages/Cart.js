@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../CartContext';
+import Navbar from '../Components/Navbar';
 
 
 const Cart = () => {
@@ -15,13 +16,14 @@ const Cart = () => {
 
     return (
         <div>
+            <Navbar />
             <h2>Cart</h2>
             {cartItems.length === 0 ? (
                 <p>No items in the cart</p>
             ) : (
                 <>
                     {cartItems.map((item) => (
-                        <div>
+                        <div className='table'>
                             <table>
                                  <tr>
                                     <th>Item No.</th>

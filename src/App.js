@@ -6,12 +6,14 @@ import Products from './Pages/Products';
 import PageNotFound from './Pages/PageNotFound';
 import { CartProvider } from './CartContext';
 import Cart from './Pages/Cart';
+import { ProductProvider } from './ProductsContext';
 
 
 function App() {
   return (
     <>
     <BrowserRouter>
+    <ProductProvider>
     <CartProvider>
       <Routes>
           <Route path="/" element={<Products />} />
@@ -20,6 +22,7 @@ function App() {
           <Route path='/Cart' element={<Cart/>}/>
       </Routes>
     </CartProvider>
+    </ProductProvider>
     </BrowserRouter>
     </> 
   );
