@@ -4,9 +4,8 @@ import Navbar from '../Components/Navbar';
 
 
 const Cart = () => {
-
+    let totalPrice = 0;
     const calculateTotalPrice = () => {
-        let totalPrice = 0;
         cartItems.forEach((item) => {
             totalPrice += item.price *item.quantity;
         });
@@ -39,7 +38,7 @@ const Cart = () => {
                                 </tr>
                                 <caption>Total Price: ${calculateTotalPrice()}</caption>
                             </table>
-                            <button onClick={() => console.log('Proceed to checkout')}></button>
+                            <></><button onClick={() => console.log('Proceed to checkout')}>Proceed to Checkout</button>
                         </div>
                     ))}
                 </>
