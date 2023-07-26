@@ -1,5 +1,12 @@
 //import logo from './logo.svg';
 import './App.css';
+import ProductDetails from './Pages/ProductDetails';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Products from './Pages/Products';
+import PageNotFound from './Pages/PageNotFound';
+import { CartProvider } from './CartContext';
+import Cart from './Pages/Cart';
+import { ProductProvider } from './ProductsContext';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import AdminNav from './Components/AdminNav';
 import AdminHome from './Pages/Admin-dashboard/AdminHome';
@@ -35,23 +42,38 @@ function App() {
       children: [{
         path: "/",
         element: <AdminHome/>
-      }]
+      },
+      {
+      path: "/",
+        element: <Products />
+      },
+        {
+      path: "/Products/:id",
+        element: <ProductDetails />
+      },
+      {
+      path: "*",
+        element: <PageNotFound />
+      },
+      {
+      path: "/Cart",
+        element: <Cart/>
+      },
+  ]
        
     }
   ]);
   //main function to render pages according to router objec
   return (
+    <>
+    <BrowserRouter>
+    <ProductProvider>
+    <CartProvider>
     <RouterProvider router={router} />
+    </CartProvider>
+    </ProductProvider>
+    </> 
   );
 }
 
 export default App;
-/**
- * <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<Products />} />
-          <Route path="/Products/:id" element={<ProductDetails />} />
-          <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
- */
