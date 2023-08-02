@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './/CreateProducts.css';
+import './CreateProducts.css';
 
 const CreateProduct = ({ onClose }) => {
     const [productName, setProductName] = useState('');
@@ -47,10 +47,7 @@ const CreateProduct = ({ onClose }) => {
         <div>
         
         <form onSubmit={handleFormSubmit}>
-          <div className='flex flex-row justify-between m-4'>
-          <img src='logo/back.png' alt='' className='w-10 h-10 relative top-1.5 right-1.5'/>
-          <h2>Create Product</h2>
-          </div>
+        <h2>Update Product</h2>
           <label>
             Product Name:<br/>
             <input type="text" value={productName} onChange={(e) => setProductName(e.target.value)} required />
