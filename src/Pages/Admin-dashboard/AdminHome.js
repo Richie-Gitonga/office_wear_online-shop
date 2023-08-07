@@ -1,27 +1,16 @@
 import React, { useState } from 'react'
-import CreateProduct from '../../Components/CreateProduct/CreateProduct';
+import Create from '../../Components/Modals/Create';
+
 
 function AdminHome() {
-  const [isCreateProductOpen, setIsCreateProductOpen] = useState(false);
-
-  const handleOpenCreateProduct = () => {
-    setIsCreateProductOpen(true);
-  };
-  
-  const handleCloseCreateProduct = () => {
-    setIsCreateProductOpen(false);
-  };
   
   return (
     <div >
-      <div>
-        <button onClick={handleOpenCreateProduct} className='w-96 h-16 shrink-0 p-20px '>Create Product</button>
+      <Create  onclose="{handleClose}"/>
+      {/* <div>
+        <button onClick={handleOpenCreateProduct} className='bg-slate-500 hover:bg-slate-400 text-white font-bold py-2 px-4 border-b-4 border-slate-700 hover:border-slate-300 rounded'>Update Product</button>
         {isCreateProductOpen && <CreateProduct onClose={handleCloseCreateProduct} />}
-      </div>
-      <div>
-        <button onClick={handleOpenCreateProduct} className='w-96 h-16 shrink-0'>Update Product</button>
-        {isCreateProductOpen && <CreateProduct onClose={handleCloseCreateProduct} />}
-      </div>
+      </div> */}
     </div>
   )
     

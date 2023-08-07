@@ -49,7 +49,7 @@ function App() {
        
     }
   ]);
-  //main function to render pages according to router objec
+  //main function to render pages according to router object
   return (
     <div>
     <RouterProvider router={router} />

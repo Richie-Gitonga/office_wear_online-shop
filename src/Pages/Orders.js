@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
-  /*useEffect(() => {
+  useEffect(() => {
     // Fetch orders from the backend API
     fetchOrders();
   }, []);
@@ -30,11 +30,11 @@ const Orders = () => {
     } catch (error) {
       console.error('Error completing order:', error);
     }
-  };*/
+  };
 
   return (
     <div className='relative overflow-x-auto sm:-mx-6 lg:-mx-8'>
-      <h1>Orders Page</h1>
+      <h1>Orders </h1>
       <table className='min-w-full text-left text-sm font-light'>
         <thead className='border-b font-medium dark:border-neutral-500'>
           <tr>
@@ -62,7 +62,12 @@ const Orders = () => {
               <td className="whitespace-nowrap px-6 py-4">{order.status}</td>
               <td>
                 {order.status !== 'completed' && (
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Complete</button>
+                  <button
+                    onClick={() => handleCompleteOrder(order.id)} 
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+                  >
+                    Complete
+                  </button>
                 )}
               </td>
             </tr>
@@ -74,4 +79,4 @@ const Orders = () => {
 };
 
 export default Orders;
-//onClick={() => handleCompleteOrder(order.id)
+//
